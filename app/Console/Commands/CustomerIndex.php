@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Customer;
 use Illuminate\Console\Command;
 
 class CustomerIndex extends Command
@@ -18,7 +19,7 @@ class CustomerIndex extends Command
      *
      * @var string
      */
-    protected $description = 'Output di tutti i customer presenti nel Database';
+    protected $description = 'Stampa di tutti i Customers presenti nel Database';
 
     /**
      * Create a new command instance.
@@ -37,6 +38,10 @@ class CustomerIndex extends Command
      */
     public function handle()
     {
-        return route('customers.index');
+        $this->line("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Di Tutti i Customers ++++++++++++++++++++++++++++++++++++++++");
+        $this->line(Customer::all());
+        $this->line("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+        return 0;
     }
 }

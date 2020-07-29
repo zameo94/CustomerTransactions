@@ -17,7 +17,7 @@ class CurrencyWebServerController extends Controller
             return response($indexCurrencies);
         }catch(\Exception $e) {
             return response([
-                'message' => 'Error with the request'
+                'message' => 'Error with the request: CurrencyWebServerController->index()'
             ], 500);
         }
 
@@ -33,7 +33,7 @@ class CurrencyWebServerController extends Controller
             return response($indexCurrency);
         }catch(\Exception $e) {
             return response([
-                'message' => 'Error with the request'
+                'message' => 'Error with the request: : CurrencyWebServerController->show()'
             ], 500);
         }
     }

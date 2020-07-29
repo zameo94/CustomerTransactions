@@ -14,7 +14,16 @@ class CurrencyWebServerController extends Controller
      */
     public function index()
     {
-        //
+        try{
+            $indexCurrencies = CurrencyWebServer::all()->pluck('value', 'currency');
+
+            return response($indexCurrencies);
+        }catch(\Exception $e) {
+            return response([
+                'message' => 'Error with the request'
+            ], 500);
+        }
+
     }
 
     /**

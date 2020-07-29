@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use App\CurrencyWebServer;
 use Tests\TestCase;
 
-class ManageCurrencyWebServerTest extends TestCase
+class ApiCurrencyWebServerTest extends TestCase
 {
 
     /**

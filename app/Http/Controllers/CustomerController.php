@@ -8,24 +8,34 @@ use Illuminate\Http\Request;
 class CustomerController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function index()
     {
-        //
+        try{
+            $customers = Customer::all();
+
+            return response($customers);
+        }catch(\Exception $e) {
+            return response([
+                'message' => 'Error with the request: Customer->index()'
+            ], 500);
+        }
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param \App\Customer $customer
-     * @return \Illuminate\Http\Response
+     * @param Customer $customer
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function show(Customer $customer)
     {
-        //
+        try{
+            return response($customer);
+        }catch(\Exception $e) {
+            return response([
+                'message' => 'Error with the request: Customer->show()'
+            ], 500);
+        }
     }
 
 }

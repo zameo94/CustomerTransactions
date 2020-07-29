@@ -3,19 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\CurrencyWebServer;
-use Illuminate\Http\Request;
 
 class CurrencyWebServerController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
     public function index()
     {
         try{
-            $indexCurrencies = CurrencyWebServer::all()->pluck('value', 'currency');
+            $indexCurrencies = CurrencyWebServer::all();
 
             return response($indexCurrencies);
         }catch(\Exception $e) {
@@ -27,13 +24,17 @@ class CurrencyWebServerController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  \App\CurrencyWebServer  $currencyWebServer
-     * @return \Illuminate\Http\Response
+     * @param CurrencyWebServer $indexCurrency
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function show(CurrencyWebServer $currencyWebServer)
+    public function show(CurrencyWebServer $indexCurrency)
     {
-        //
+        try{
+            return response($indexCurrency);
+        }catch(\Exception $e) {
+            return response([
+                'message' => 'Error with the request'
+            ], 500);
+        }
     }
 }

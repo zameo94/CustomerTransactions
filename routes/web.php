@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::get('index-currencies', 'CurrencyWebServerController@index')->name('index-currencies.index');
+Route::get('index-currencies/{indexCurrency}/', 'CurrencyWebServerController@show')->name('index-currencies.show');

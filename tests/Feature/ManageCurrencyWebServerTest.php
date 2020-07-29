@@ -20,5 +20,11 @@ class ManageCurrencyWebServerTest extends TestCase
             ->assertSee($currency->value)
             //->assertSee($currency->currency)
         ;
+
+        $this->get(route('index-currencies.show', ['indexCurrency' => $currency]))
+            ->assertOk()
+            ->assertSee($currency->value)
+            //->assertSee($currency->currency)
+        ;
     }
 }

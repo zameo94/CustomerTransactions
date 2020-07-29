@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Customer;
 use Illuminate\Console\Command;
 
-class CustomerIndex extends Command
+class CustomerIndexCommand extends Command
 {
     /**
      * The name and signature of the console command.

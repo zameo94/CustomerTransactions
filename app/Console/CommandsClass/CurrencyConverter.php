@@ -16,9 +16,15 @@ class CurrencyConverter
         $output = [];
         $customerTransactions = CustomerTransaction::whereCustomerId($customerId)->get();
 
-        array_push($output, "++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Delle Transazione Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++");
-        array_push($output, $customerTransactions);
-        array_push($output,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        if(count($customerTransactions)){
+            array_push($output, "++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Delle Transazione Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++");
+            array_push($output, $customerTransactions);
+            array_push($output,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+            return $output;
+        }
+
+        array_push($output, "Nessuna Transazione trovata per il Customer indicato");
 
         return $output;
     }

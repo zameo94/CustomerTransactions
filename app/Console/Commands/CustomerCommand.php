@@ -2,23 +2,26 @@
 
 namespace App\Console\Commands;
 
+use App\Console\CommandsClass\GetCustomer;
+use App\Console\CommandsClass\GetTransaction;
+use App\Customer;
 use Illuminate\Console\Command;
 
-class ClientReport extends Command
+class CustomerCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'customers:get {--customer=}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Stampa di tutti i Customers presenti nel Database';
 
     /**
      * Create a new command instance.
@@ -37,6 +40,10 @@ class ClientReport extends Command
      */
     public function handle()
     {
+        $customerId = $this->option('customer')  ?? null;
+
+        $this->line(GetCustomer::main($customerId));
+
         return 0;
     }
 }

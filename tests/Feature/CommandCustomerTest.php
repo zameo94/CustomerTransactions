@@ -5,14 +5,14 @@ namespace Tests\Feature;
 use App\Customer;
 use Tests\TestCase;
 
-class CommandCustomerIndexTest extends TestCase
+class CommandCustomerTest extends TestCase
 {
     /**
      * @test
      */
     public function it_has_customers_index_command()
     {
-       $this->assertTrue(class_exists(\App\Console\Commands\CustomerIndexCommand::class));
+       $this->assertTrue(class_exists(\App\Console\Commands\CustomerCommand::class));
     }
 
     /**
@@ -26,6 +26,20 @@ class CommandCustomerIndexTest extends TestCase
             ->expectsOutput('++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Di Tutti i Customers ++++++++++++++++++++++++++++++++++++++++')
             //->expectsOutput(Customer::all())
             ->expectsOutput('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
+            ->assertExitCode(0);
+    }
+
+    /**
+     * @test
+     */
+    public function guest_can_view_show_customer()
+    {
+        $customer = factory(Customer::class)->create();
+
+        $this->artisan('customers:get', ['customer' => $customer->id])
+            ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++")
+            //->expectsOutput(Customer::all())
+            ->expectsOutput("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             ->assertExitCode(0);
     }
 }

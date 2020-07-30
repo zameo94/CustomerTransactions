@@ -2,24 +2,25 @@
 
 namespace App\Console\Commands;
 
-use App\Customer;
+use App\Console\CommandsClass\GetTransaction;
+use App\CustomerTransaction;
 use Illuminate\Console\Command;
 
-class CustomerIndexCommand extends Command
+class CustomerTransactionCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'customers:get';
+    protected $signature = 'customers-transactions:get  {--transaction=}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Stampa di tutti i Customers presenti nel Database';
+    protected $description = 'Stampa di tutte le Transazioni presenti nel Database';
 
     /**
      * Create a new command instance.
@@ -38,9 +39,9 @@ class CustomerIndexCommand extends Command
      */
     public function handle()
     {
-        $this->line("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Di Tutti i Customers ++++++++++++++++++++++++++++++++++++++++");
-        $this->line(Customer::all());
-        $this->line("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+        $transactionId = $this->option('transaction') ?? null;
+
+        $this->line(GetTransaction::main($transactionId));
 
         return 0;
     }

@@ -12,7 +12,7 @@ class CommandCustomerTest extends TestCase
      */
     public function it_has_customers_index_command()
     {
-       $this->assertTrue(class_exists(\App\Console\Commands\CustomerCommand::class));
+       $this->assertTrue(class_exists(\App\Console\Commands\CustomerReportCommand::class));
     }
 
     /**

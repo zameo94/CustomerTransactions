@@ -2,23 +2,24 @@
 
 namespace App\Console\Commands;
 
+use App\Console\CommandsClass\CurrencyConverter;
 use Illuminate\Console\Command;
 
-class CustomerReport extends Command
+class CustomerReportCommand extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'customer:report {customer-id}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Stampa di tutte le Transazioni appartenenti ad un Customers indicato come primo argomento';
 
     /**
      * Create a new command instance.
@@ -37,6 +38,10 @@ class CustomerReport extends Command
      */
     public function handle()
     {
+        $customerId = $this->argument('customer-id') ?? null;
+
+        $this->line(CurrencyConverter::main($customerId));
+
         return 0;
     }
 }

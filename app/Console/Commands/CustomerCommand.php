@@ -21,7 +21,7 @@ class CustomerCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Stampa di tutti i Customers presenti nel Database';
+    protected $description = 'Stampa di tutti i Customers presenti nel Database o di un Customer speficio tramite --customer={id}';
 
     /**
      * Create a new command instance.

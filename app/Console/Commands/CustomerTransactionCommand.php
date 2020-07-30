@@ -20,7 +20,7 @@ class CustomerTransactionCommand extends Command
      *
      * @var string
      */
-    protected $description = 'Stampa di tutte le Transazioni presenti nel Database';
+    protected $description = 'Stampa di tutte le Transazioni presenti nel Database o di una Transazione speficia tramite --transaction={id}';
 
     /**
      * Create a new command instance.

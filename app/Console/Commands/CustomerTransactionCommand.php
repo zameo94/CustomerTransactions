@@ -2,6 +2,8 @@
 
 namespace App\Console\Commands;
 
+use App\Console\CommandsClass\GetTransaction;
+use App\CustomerTransaction;
 use Illuminate\Console\Command;
 
 class CustomerTransactionCommand extends Command
@@ -11,14 +13,14 @@ class CustomerTransactionCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'command:name';
+    protected $signature = 'customers-transactions:get  {--transaction=}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Stampa di tutte le Transazioni presenti nel Database';
 
     /**
      * Create a new command instance.
@@ -37,6 +39,10 @@ class CustomerTransactionCommand extends Command
      */
     public function handle()
     {
+        $transactionId = $this->option('transaction') ?? null;
+
+        $this->line(GetTransaction::main($transactionId));
+
         return 0;
     }
 }

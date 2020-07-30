@@ -16,14 +16,10 @@ class ApiCustomerTest extends TestCase
 
         $this->get(route('customers.index'))
             ->assertOk()
-            ->assertSee($customer->value)
-            //->assertSee($customer->currency)
-        ;
+            ->assertSee($customer->name);
 
         $this->get(route('customers.show', ['customer' => $customer]))
             ->assertOk()
-            ->assertSee($customer->value)
-            //->assertSee($customer->currency)
-        ;
+            ->assertSee($customer->name);
     }
 }

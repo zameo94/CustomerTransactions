@@ -2,21 +2,30 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
+use App\Customer;
 use Tests\TestCase;
 
 class CommandCustomerReportTest extends TestCase
 {
     /**
-     * A basic feature test example.
-     *
-     * @return void
+     * @test
      */
-    public function testExample()
+    public function it_has_customers_index_command()
     {
-        $response = $this->get('/');
+        $this->assertTrue(class_exists(\App\Console\Commands\CustomerReportCommand::class));
+    }
 
-        $response->assertStatus(200);
+    /**
+     * @test
+     */
+    public function guest_can_view_customers_report()
+    {
+        $customer = factory(Customer::class)->create();
+
+        $this->artisan('customer:report', ['customer-id' => $customer->id])
+            ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Delle Transazione Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++")
+            //->expectsOutput(Customer::all())
+            ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            ->assertExitCode(0);
     }
 }

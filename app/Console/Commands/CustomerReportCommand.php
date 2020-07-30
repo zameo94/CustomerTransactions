@@ -5,7 +5,7 @@ namespace App\Console\Commands;
 use App\Console\CommandsClass\CurrencyConverter;
 use Illuminate\Console\Command;
 
-class CustomerReport extends Command
+class CustomerReportCommand extends Command
 {
     /**
      * The name and signature of the console command.

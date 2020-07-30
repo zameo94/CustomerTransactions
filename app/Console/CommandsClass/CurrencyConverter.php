@@ -9,15 +9,18 @@ class CurrencyConverter
 {
     /**
      * @param null $customerId
-     * @return mixed
+     * @return array
      */
     public static function main($customerId = null)
     {
+        $output = [];
         $customerTransactions = CustomerTransaction::whereCustomerId($customerId)->get();
 
-        $customerTransactions = self::converter('€', $customerTransactions);
+        array_push($output, "++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Delle Transazione Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++");
+        array_push($output, $customerTransactions);
+        array_push($output,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 
-        return $customerTransactions;
+        return $output;
     }
 
     /**
@@ -40,15 +43,11 @@ class CurrencyConverter
                 }
             }
 
-            $customerTransaction->value =
-
-            (1 / $customerCurrencyIndex) * $customerTransaction->value
-            ;
+            $customerTransaction->value = (1 / $customerCurrencyIndex) * $customerTransaction->value;
 
             $customerTransaction->currency = $primaryCurrency;
 
             array_push($output, $customerTransaction);
-
         }
 
         return $output;

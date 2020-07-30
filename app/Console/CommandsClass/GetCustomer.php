@@ -13,16 +13,25 @@ class GetCustomer
      */
     public static function main($customerId = null)
     {
+        $output = [];
+
         if(isset($customerId))
         {
-            $output = [];
-            array_push($output, "++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++");
-            array_push($output,Customer::whereId($customerId)->get());
-            array_push($output,"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+            $customer = Customer::whereId($customerId)->get();
+            if(count($customer)){
+                array_push($output, "++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++");
+                array_push($output, $customer);
+                array_push($output,"+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
+
+                return $output;
+            }
+
+            array_push($output, "Nessun Customer trovato per l'id indicato");
 
             return $output;
+
+
         } else {
-            $output = [];
             array_push($output, "++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Di Tutti i Customers ++++++++++++++++++++++++++++++++++++++++");
             array_push($output,Customer::all());
             array_push($output,"++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");

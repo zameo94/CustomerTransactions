@@ -30,7 +30,7 @@ DB_PASSWORD=password
 
 - Sempre nella Root del progetto, digitare
 ```
-php artisan key generate
+php artisan key:generate
 ```
 
 - Sempre nella Root del progetto, digitare il comando per la creazione delle tabelle. Attenzione all'opzione --seed, responsabile della popolazione dei dati necessari al corretto funzionamento

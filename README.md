@@ -135,6 +135,15 @@ sono i Model delle rispettive risorse
  \database\factory\
 ```
 ci sono le Factory per creare dati della risorsa specificata, utilizzati sia in fase di Test che nel primo avvio dell'applicazione
+
+- All'interno di 
+```
+ \database\migrations\
+```
+ci sono le migrazioni, rappresentazione delle tabelle e sono i file che vengono eseguiti al comando 
+```
+php artisan migrate
+```
  
 - All'interno di 
 ```

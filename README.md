@@ -38,7 +38,7 @@ php artisan key:generate
 php artisan migrate --seed
 ```
 
-- Se vi foste dimenticati --seed, si può rimediare digitando
+- Se vi foste dimenticati --seed (o aveste dati non voluti nel DB), si può rimediare (riportando il DB in faso di primo avviso) digitando
 ```
 php artisan migrate:refresh --seed
 ```

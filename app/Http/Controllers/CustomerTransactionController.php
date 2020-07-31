@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\CurrencyWebServer;
+use App\CustomerTransaction;
 
-class CurrencyWebServerController extends Controller
+class CustomerTransactionController extends Controller
 {
     /**
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
@@ -12,28 +12,27 @@ class CurrencyWebServerController extends Controller
     public function index()
     {
         try{
-            $indexCurrencies = CurrencyWebServer::all();
+            $customers = CustomerTransaction::all();
 
-            return response($indexCurrencies);
+            return response($customers);
         }catch(\Exception $e) {
             return response([
-                'message' => 'Error with the request: CurrencyWebServerController->index()'
+                'message' => 'Error with the request: CustomerTransaction->index()'
             ], 500);
         }
-
     }
 
     /**
-     * @param CurrencyWebServer $indexCurrency
+     * @param CustomerTransaction $customerTransaction
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
      */
-    public function show(CurrencyWebServer $indexCurrency)
+    public function show(CustomerTransaction $customerTransaction)
     {
         try{
-            return response($indexCurrency);
+            return response($customerTransaction);
         }catch(\Exception $e) {
             return response([
-                'message' => 'Error with the request: : CurrencyWebServerController->show()'
+                'message' => 'Error with the request: CustomerTransaction->show()'
             ], 500);
         }
     }

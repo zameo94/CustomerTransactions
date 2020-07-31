@@ -7,8 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 class Customer extends Model
 {
     protected $fillable = [
-        'value',
-        'currency',
-        'created_at'
+        'name'
     ];
+
+    /**
+     *
+     */
+    public function transactions()
+    {
+        $this->hasMany(CustomerTransaction::class);
+    }
 }

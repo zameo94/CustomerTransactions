@@ -18,3 +18,10 @@ Route::get('/', function () {
 });
 
 Route::get('index-currencies', 'CurrencyWebServerController@index')->name('index-currencies.index');
+Route::get('index-currencies/{indexCurrency}/', 'CurrencyWebServerController@show')->name('index-currencies.show');
+
+Route::get('customers', 'CustomerController@index')->name('customers.index');
+Route::get('customers/{customer}/', 'CustomerController@show')->name('customers.show');
+
+Route::get('customers-transactions', 'CustomerTransactionController@index')->name('customers-transactions.index');
+Route::get('customers-transactions/{customerTransaction}/', 'CustomerTransactionController@show')->name('customers-transactions.show');

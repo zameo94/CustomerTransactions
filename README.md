@@ -7,16 +7,16 @@ Questa applicazione ha come scopo la visualizzazione delle transazioni di un sin
 
 Una volta scaricato il progetto (e scompattato nel caso abbiate scaricato lo zip), sono necessari pochi passaggi per rendere funzionante l'applicazione, tra cui la creazione di un DB vuoto dedicato
 
-- Col terminale posizionarsi nella Root del progetto e dicitare i seguenti comandi:
+- Col terminale posizionarsi nella Root del progetto e digitare i seguenti comandi:
 
 - Installazione dei pacchetti necessari per il corretto funzionamento
 ```
 composer install
 ```
 
-- Copiare il file /project_root/.env.example in /project_root/.env.example
+- Copiare il file /project_root/.env.example in /project_root/.env
 
-- Nel file .env appena creato, popolare i campi relativi al nome del DB create e alle credenziali di accesso 
+- Nel file .env appena creato, popolare i campi relativi al nome del DB creato in precedenza e alle relative credenziali di accesso 
 ```
 Esempio:
 
@@ -68,19 +68,18 @@ php artisan serve
 ```
 per creare un piccolo server locale e far funzionre le chiamate API con Postman
 
-A ueste risorse si affianca un sistema per la conversione del valore delle transazioni selezionate nella valuta voluta 
-
 # Comandi
+Dalla Root del progetto è possibile digitare i seguenti comandi:
 
 #### Customer
 
 - Lista di tutti i Customer presenti
 ```
-php artisan customer:get
+php artisan customers:get
 ```
 - Lista del Customer indicato
 ```
-php artisan customer:get --customer=1
+php artisan customers:get --customer=1
 ```
 
 #### Transazioni

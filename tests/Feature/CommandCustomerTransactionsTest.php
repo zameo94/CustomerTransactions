@@ -41,7 +41,7 @@ class CommandCustomerTransactionsTest extends TestCase
 
         $this->artisan('customers-transactions:get', ['--transaction' => $transaction->id])
             ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Della Transazione Indicata ++++++++++++++++++++++++++++++++++++++++")
-         //->expectsOutput(Customer::all())
+            //->expectsOutput(CustomerTransaction::all())
             ->expectsOutput("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             ->assertExitCode(0);
 

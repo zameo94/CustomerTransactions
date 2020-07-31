@@ -17,14 +17,10 @@ class ApiCurrencyWebServerTest extends TestCase
 
         $this->get(route('index-currencies.index'))
             ->assertOk()
-            ->assertSee($currency->value)
-            //->assertSee($currency->currency)
-        ;
+            ->assertSee($currency->value);
 
         $this->get(route('index-currencies.show', ['indexCurrency' => $currency]))
             ->assertOk()
-            ->assertSee($currency->value)
-            //->assertSee($currency->currency)
-        ;
+            ->assertSee($currency->value);
     }
 }

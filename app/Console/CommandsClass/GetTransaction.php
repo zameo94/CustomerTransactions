@@ -19,7 +19,7 @@ class GetTransaction
 
             $transaction = CustomerTransaction::whereId($transactionId)->get();
             if(count($transaction)) {
-                array_push($output, "++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Della Transazione  Indicata ++++++++++++++++++++++++++++++++++++++++");
+                array_push($output, "++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Della Transazione Indicata ++++++++++++++++++++++++++++++++++++++++");
                 array_push($output, $transaction);
                 array_push($output, "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++");
 

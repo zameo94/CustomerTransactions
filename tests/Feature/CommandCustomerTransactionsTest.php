@@ -24,7 +24,7 @@ class CommandCustomerTransactionsTest extends TestCase
         factory(Customer::class)->create();
         factory(CustomerTransaction::class)->create();
 
-        $this->artisan('customers:get')
+        $this->artisan('customers-transactions:get')
             ->expectsOutput('++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Di Tutte le Transazioni ++++++++++++++++++++++++++++++++++++++++')
             //->expectsOutput(Customer::all())
             ->expectsOutput('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
@@ -39,10 +39,16 @@ class CommandCustomerTransactionsTest extends TestCase
         factory(Customer::class)->create();
         $transaction = factory(CustomerTransaction::class)->create();
 
-        $this->artisan('customers:get', ['transaction' => $transaction->id])
-            ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Della Transazione  Indicata ++++++++++++++++++++++++++++++++++++++++")
+        $this->artisan('customers-transactions:get', ['--transaction' => $transaction->id])
+            ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Della Transazione Indicata ++++++++++++++++++++++++++++++++++++++++")
          //->expectsOutput(Customer::all())
-            ->expectsOutput("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            ->expectsOutput("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            ->assertExitCode(0);
+
+        $transaction->id = 10;
+
+        $this->artisan('customers-transactions:get', ['--transaction' => $transaction->id])
+            ->expectsOutput("Nessuna Transazione trovato per l'id indicato")
             ->assertExitCode(0);
     }
 }

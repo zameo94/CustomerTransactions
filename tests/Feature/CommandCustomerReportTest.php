@@ -3,10 +3,14 @@
 namespace Tests\Feature;
 
 use App\Customer;
+use App\CustomerTransaction;
+use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class CommandCustomerReportTest extends TestCase
 {
+    private $console;
+
     /**
      * @test
      */
@@ -21,11 +25,19 @@ class CommandCustomerReportTest extends TestCase
     public function guest_can_view_customers_report()
     {
         $customer = factory(Customer::class)->create();
+        factory(CustomerTransaction::class)->create();
 
         $this->artisan('customer:report', ['customer-id' => $customer->id])
             ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Delle Transazione Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++")
             //->expectsOutput(Customer::all())
             ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             ->assertExitCode(0);
+
+        $customer->id = 10;
+
+        $this->artisan('customer:report', ['customer-id' => $customer->id])
+            ->expectsOutput("Nessuna Transazione trovata per il Customer indicato");
+
+
     }
 }

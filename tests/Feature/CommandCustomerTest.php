@@ -36,10 +36,16 @@ class CommandCustomerTest extends TestCase
     {
         $customer = factory(Customer::class)->create();
 
-        $this->artisan('customers:get', ['customer' => $customer->id])
+        $this->artisan('customers:get', ['--customer' => $customer->id])
             ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++")
             //->expectsOutput(Customer::all())
             ->expectsOutput("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+            ->assertExitCode(0);
+
+        $customer->id = 100;
+
+        $this->artisan('customers:get', ['--customer' => $customer->id])
+            ->expectsOutput("Nessun Customer trovato per l'id indicato")
             ->assertExitCode(0);
     }
 }

@@ -18,14 +18,10 @@ class ApiCustomerTransactionTest extends TestCase
 
         $this->get(route('customers-transactions.index'))
             ->assertOk()
-            ->assertSee($customerTransactions->value)
-            //->assertSee($customer->currency)
-        ;
+            ->assertSee($customerTransactions->value);
 
         $this->get(route('customers-transactions.show', ['customerTransaction' => $customerTransactions]))
             ->assertOk()
-            ->assertSee($customerTransactions->value)
-            //->assertSee($customer->currency)
-        ;
+            ->assertSee($customerTransactions->value);
     }
 }

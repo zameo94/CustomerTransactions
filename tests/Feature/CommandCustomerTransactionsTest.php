@@ -26,7 +26,6 @@ class CommandCustomerTransactionsTest extends TestCase
 
         $this->artisan('customers-transactions:get')
             ->expectsOutput('++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Di Tutte le Transazioni ++++++++++++++++++++++++++++++++++++++++')
-            //->expectsOutput(Customer::all())
             ->expectsOutput('+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
             ->assertExitCode(0);
     }
@@ -41,7 +40,6 @@ class CommandCustomerTransactionsTest extends TestCase
 
         $this->artisan('customers-transactions:get', ['--transaction' => $transaction->id])
             ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Della Transazione Indicata ++++++++++++++++++++++++++++++++++++++++")
-         //->expectsOutput(Customer::all())
             ->expectsOutput("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             ->assertExitCode(0);
 

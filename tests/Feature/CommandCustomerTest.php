@@ -24,7 +24,6 @@ class CommandCustomerTest extends TestCase
 
         $this->artisan('customers:get')
             ->expectsOutput('++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Di Tutti i Customers ++++++++++++++++++++++++++++++++++++++++')
-            //->expectsOutput(Customer::all())
             ->expectsOutput('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
             ->assertExitCode(0);
     }
@@ -38,7 +37,6 @@ class CommandCustomerTest extends TestCase
 
         $this->artisan('customers:get', ['--customer' => $customer->id])
             ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++")
-            //->expectsOutput(Customer::all())
             ->expectsOutput("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             ->assertExitCode(0);
 

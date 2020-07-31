@@ -48,7 +48,7 @@ php artisan migrate:refresh --seed
 L'applicazione ha delle funzionalità in più per rendere l'esperienza generale più fruibile e vicina ad un reale caso
 
 Le risorse Principali sono Customer e CurrencyWebServer.
-Per oguna di loro è possibile visualizzare tramite chiamata API o tutte le risorse presenti o una singola risorsa indicata (utilizzabile da Postman)
+Per ognuna di loro è possibile visualizzare tramite chiamata API o tutte le risorse presenti o una singola risorsa indicata (utilizzabile da Postman)
 ```
 Esempio link chiamata tutti i Customers
 127.0.0.1:8000/customers
@@ -97,8 +97,53 @@ php artisan customers-transactions:get --transaction=1
 #### Report
 
 - Report delle Transazioni Del Customer indicato con le valute trasformate nella valuta primaria indicata nel programma (default €)
- Obbligatorio l'argomento che indica l'id del Customer selezionato
+ Obbligatorio l' argomento che indica l' id del Customer selezionato
 ```
 php artisan customer:report 1
 ```
 
+# Struttura
+
+- All'interno di 
+```
+ \app\Console\Commands
+```
+ci sono i file relativi alla prima iterazione col comando
+ 
+- All'interno di 
+```
+ \app\Console\CommandsClass
+```
+ci sono i file relativi alla reale logica del comando, interazione col DB, gestione dell' output di risorsa singola eo multipla, ecc
+ 
+- All'interno di 
+```
+ \app\Http\Controllers
+```
+ci sono i Controllers dell'API, che viene richiamata sia con chiamata API (browser, postman, ecc) che dai comandi 
+  
+- 
+```
+ \app\CurrencyWebServer.php
+ \app\Customer.php
+ \app\CustomerTransaction.php
+```
+sono i Model delle rispettive risorse
+ 
+- All'interno di 
+```
+ \database\factory\
+```
+ci sono le Factory per creare dati della risorsa specificata, utilizzati sia in fase di Test che nel primo avvio dell'applicazione
+ 
+- All'interno di 
+```
+ \database\seeds\
+```
+ci sono i Seeder, che utilizzano le Factory per la creazione di più risorse in simultanea
+
+- All'interno di 
+```
+ \test\Feature\
+```
+ci sono i Test, relativi sia all' API sia ai comandi

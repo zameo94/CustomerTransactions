@@ -1,9 +1,9 @@
 # Task
 Questa applicazione ha come scopo la visualizzazione delle transazioni di un singolo utente in valuta € (coi dovuti cambi)
 
-#Installazione
+# Installazione
 
-#####Testata su Linux Ubuntu 18.04
+##### Testata su Linux Ubuntu 18.04
 
 Una volta scaricato il progetto (e scompattato nel caso abbiate scaricato lo zip), sono necessari pochi passaggi per rendere funzionante l'applicazione, tra cui la creazione di un DB vuoto dedicato
 
@@ -43,7 +43,7 @@ php artisan migrate --seed
 php artisan migrate:refresh --seed
 ```
 
-#Funzionamento
+# Funzionamento
 
 L'applicazione ha delle funzionalità in più per rendere l'esperienza generale più fruibile e vicina ad un reale caso
 
@@ -62,9 +62,9 @@ per creare un piccolo server locale e far funzionre le chiamate API con Postman
 
 A ueste risorse si affianca un sistema per la conversione del valore delle transazioni selezionate nella valuta voluta 
 
-#Comandi
+# Comandi
 
-####Customer
+#### Customer
 
 - Lista di tutti i Customer presenti
 ```
@@ -75,7 +75,7 @@ php artisan customer:get
 php artisan customer:get --customer=1
 ```
 
-####Transazioni
+#### Transazioni
 
 - Lista di tutte le Transazioni presenti
 ```
@@ -86,7 +86,7 @@ php artisan customers-transactions:get
 php artisan customers-transactions:get --transaction=1
 ```
 
-####Report
+#### Report
 
 - Report delle Transazioni Del Customer indicato con le valute trasformate nella valuta primaria indicata nel programma (default €)
  Obbligatorio l'argomento che indica l'id del Customer selezionato

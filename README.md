@@ -147,3 +147,5 @@ ci sono i Seeder, che utilizzano le Factory per la creazione di più risorse in 
  \test\Feature\
 ```
 ci sono i Test, relativi sia all' API sia ai comandi
+
+Enjoy

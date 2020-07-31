@@ -51,18 +51,18 @@ Le risorse Principali sono Customer e CurrencyWebServer.
 Per oguna di loro è possibile visualizzare tramite chiamata API o tutte le risorse presenti o una singola risorsa indicata (utilizzabile da Postman)
 ```
 Esempio link chiamata tutti i Customers
-127.0.0.1:8001/customers
+127.0.0.1:8000/customers
 
 Esempio link chiamata singolo Customer
 127.0.0.1:8000/customers/1
 
 Esempio link chiamata tutti le Transazioni
-127.0.0.1:8001/customers-transactions
+127.0.0.1:8000/customers-transactions
 
 Esempio link chiamata singola Transazione
-127.0.0.1:8001/customers-transactions/1
+127.0.0.1:8000/customers-transactions/1
 ```
- È poaaibile dalla Root del progetto digitare 
+ È possibile dalla Root del progetto digitare 
  ```
 php artisan serve
 ```

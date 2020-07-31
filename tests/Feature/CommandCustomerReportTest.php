@@ -29,7 +29,6 @@ class CommandCustomerReportTest extends TestCase
 
         $this->artisan('customer:report', ['customer-id' => $customer->id])
             ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++ Stampa Delle Transazione Del Customer Indicato ++++++++++++++++++++++++++++++++++++++++")
-            //->expectsOutput(Customer::all())
             ->expectsOutput("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
             ->assertExitCode(0);
 

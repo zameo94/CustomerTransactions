@@ -73,7 +73,7 @@ Dalla Root del progetto è possibile digitare i seguenti comandi:
 
 #### Customer
 
-- Lista di tutti i Customer presenti
+- Lista di tutti i Customers presenti
 ```
 php artisan customers:get
 ```
@@ -88,14 +88,14 @@ php artisan customers:get --customer=1
 ```
 php artisan customers-transactions:get
 ```
-- Lista della Transazione indicato
+- Lista della Transazione indicata
 ```
 php artisan customers-transactions:get --transaction=1
 ```
 
 #### Report
 
-- Report delle Transazioni Del Customer indicato con le valute trasformate nella valuta primaria indicata nel programma (default €)
+- Report delle Transazioni Del Customer indicato con le valute trasformate nella valuta primaria indicata nel programma (default €).
  Obbligatorio l' argomento che indica l' id del Customer selezionato
 ```
 php artisan customer:report 1
@@ -113,7 +113,7 @@ ci sono i file relativi alla prima iterazione col comando
 ```
  \app\Console\CommandsClass
 ```
-ci sono i file relativi alla reale logica del comando, interazione col DB, gestione dell' output di risorsa singola eo multipla, ecc
+ci sono i file relativi alla reale logica del comando, interazione col DB, gestione dell' output di risorsa singola e/o multipla, ecc
  
 - All'interno di 
 ```
@@ -139,7 +139,7 @@ ci sono le Factory per creare dati della risorsa specificata, utilizzati sia in 
 ```
  \database\migrations\
 ```
-ci sono le migrazioni, rappresentazione delle tabelle e sono i file che vengono eseguiti al comando 
+ci sono le migrazioni, rappresentazione delle tabelle, sono i file che vengono eseguiti al comando 
 ```
 php artisan migrate
 ```

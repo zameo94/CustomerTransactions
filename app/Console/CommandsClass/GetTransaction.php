@@ -10,7 +10,7 @@ class GetTransaction
      * @param null $transactionId
      * @return array
      */
-    public static function main($transactionId = null)
+    public function main($transactionId = null)
     {
         $output = [];
 

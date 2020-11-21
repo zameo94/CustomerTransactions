@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use App\Console\CommandsClass\GetTransaction;
-use App\CustomerTransaction;
 use Illuminate\Console\Command;
 
 class CustomerTransactionCommand extends Command
@@ -39,9 +38,10 @@ class CustomerTransactionCommand extends Command
      */
     public function handle()
     {
+        $getTransaction = new GetTransaction();
         $transactionId = $this->option('transaction') ?? null;
 
-        $this->line(GetTransaction::main($transactionId));
+        $this->line($getTransaction->main($transactionId));
 
         return 0;
     }

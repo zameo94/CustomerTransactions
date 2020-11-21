@@ -11,7 +11,7 @@ class GetCustomer
      * @param null $customerId
      * @return array
      */
-    public static function main($customerId = null)
+    public function main($customerId = null)
     {
         $output = [];
 

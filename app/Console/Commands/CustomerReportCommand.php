@@ -38,9 +38,11 @@ class CustomerReportCommand extends Command
      */
     public function handle()
     {
+        $currencyConverter = new CurrencyConverter();
+
         $customerId = $this->argument('customer-id') ?? null;
 
-        $this->line(CurrencyConverter::main($customerId));
+        $this->line($currencyConverter->main($customerId));
 
         return 0;
     }

@@ -11,7 +11,7 @@ class CurrencyConverter
      * @param null $customerId
      * @return array
      */
-    public static function main($customerId = null)
+    public function main($customerId = null)
     {
         $output = [];
         $customerTransactions = CustomerTransaction::whereCustomerId($customerId)->get();
@@ -34,7 +34,7 @@ class CurrencyConverter
      * @param $customerTransactions
      * @return array
      */
-    public static function converter($primaryCurrency, $customerTransactions)
+    public function converter($primaryCurrency, $customerTransactions)
     {
         $currencyIndexChanges = CurrencyWebServer::all()->toArray();
         $output = [];

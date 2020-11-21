@@ -4,7 +4,6 @@ namespace Tests\Feature;
 
 use App\Customer;
 use App\CustomerTransaction;
-use Illuminate\Support\Facades\Artisan;
 use Tests\TestCase;
 
 class CommandCustomerReportTest extends TestCase
